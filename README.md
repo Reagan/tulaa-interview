@@ -47,7 +47,7 @@ Please note that for the client-server code, the server needs to be run first.
 
 ## Authors
 
-* **Reagan Mbitiru** - *Initial work* - [Reayn](https://github.com/reayn/)
+* **Reagan Mbitiru** - *Initial work* - [Reayn](https://github.com/Reagan)
 
 ## License
 
