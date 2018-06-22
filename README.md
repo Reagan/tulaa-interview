@@ -7,7 +7,7 @@ This repo contains a set of responses to questions for the aforementioned interv
 To use this application, one needs to obtain this repository which can be cloned at
 
 ```
-git clone https://reayn@github.com/reayn/tulaa-interview.git
+git clone https://github.com/Reagan/tulaa-interview.git
 ```
 
 ### Prerequisites
@@ -19,7 +19,7 @@ This application requires Java version 6+. No additional 3rd party modules, pack
 1. To run the application, first unzip the code to a directory on your machine or clone the repository using
 
 ```
-git clone https://reayn@github.com/reayn/tulaa-interview.git
+git clone https://github.com/Reagan/tulaa-interview.git
 ```
 
 2. Please ensure that Java 6 is installed on your machine by running
