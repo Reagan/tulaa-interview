@@ -9,7 +9,7 @@ public class StringReverserSansSpecialChars {
         System.out.println(String.format("%s => %s", "Ab,c,de!$", reverser.swap("Ab,c,de!$")));
     }
 
-    private String swap(String input) {
+    public String swap(String input) {
         if (null != input && input.trim().length() > 0) {
             char[] elems = input.toCharArray();
             for (int startCounter = 0, endCounter = input.length() - 1;

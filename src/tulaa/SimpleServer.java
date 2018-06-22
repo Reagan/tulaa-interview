@@ -5,48 +5,41 @@ import java.net.*;
 
 class SimpleServer {
 
-    private static SimpleServer server;
-    private ServerSocket socket;
-    private Socket incoming;
-    private BufferedReader readerIn;
-    private PrintStream printOut;
-    private static final int PORT = 8080;
+    public SimpleServer(int port) {}
 
     public static void main(String[] args) {
-        server = new SimpleServer(PORT);
+        int port = 8080;
+        SimpleServer server = new SimpleServer(port);
+        server.start();
     }
 
-
-    private SimpleServer(int port) {
+    public void start() {
         try {
-            socket = new ServerSocket(port);
-            incoming = socket.accept();
-            readerIn = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
-            printOut = new PrintStream(incoming.getOutputStream());
+            System.out.println("Starting server...");
+            ServerSocket socket = new ServerSocket(8080);
+            Socket incoming = socket.accept();
+            PrintWriter out = new PrintWriter(incoming.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(incoming.getInputStream()));
 
-            printOut.println("Enter EXIT to exit.\r");
-            out("Enter EXIT to exit.\r");
-
-            boolean done = false;
-            while (!done) {
-                String str = readerIn.readLine();
-
-                if (str == null) {
-                    done = true;
-                } else {
-                    out("Echo: " + str + "\r");
-                    if (str.trim().equals("EXIT"))
-                        done = true;
-                }
-                incoming.close();
+            String inputLine, response = "";
+            while ((inputLine = in.readLine()) != null) {
+                if (inputLine.equals("exit")) break;
+                System.out.println(String.format("Received: %s", inputLine));
+                String processStr = inputLine.substring(inputLine.lastIndexOf("/") + 1);
+                if (inputLine.contains("/parenthesis/validate"))
+                    response = new ParenthesisChecker().validate(processStr);
+                else if (inputLine.contains("/string_reverser/swap"))
+                    response = new StringReverserSansSpecialChars().swap(processStr);
+                out.println(response);
             }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
 
-    private void out(String str) {
-        printOut.println(str);
-        System.out.println(str);
+            socket.close();
+            incoming.close();
+            out.close();
+            socket.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
