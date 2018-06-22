@@ -5,11 +5,10 @@ import java.net.*;
 
 class SimpleServer {
 
-    public SimpleServer(int port) {}
+    public SimpleServer() {}
 
     public static void main(String[] args) {
-        int port = 8080;
-        SimpleServer server = new SimpleServer(port);
+        SimpleServer server = new SimpleServer();
         server.start();
     }
 
