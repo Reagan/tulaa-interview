@@ -12,6 +12,13 @@ public class ParenthesisChecker {
         System.out.println(checker.validate("(]"));
     }
 
+    public String validate(String parenthesis) {
+        if (validateParenthesis(parenthesis))
+            return String.format("%s is valid", parenthesis);
+        else
+            return String.format("%s is not valid", parenthesis);
+    }
+
     private boolean validateParenthesis(String str) {
         if (null != str || str == "") {
             Vector stack = new Vector();
@@ -25,12 +32,5 @@ public class ParenthesisChecker {
             }
         }
         return true;
-    }
-
-    private String validate(String parenthesis) {
-        if (validateParenthesis(parenthesis))
-            return String.format("%s is valid", parenthesis);
-        else
-            return String.format("%s is not valid", parenthesis);
     }
 }
