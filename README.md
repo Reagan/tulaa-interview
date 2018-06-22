@@ -22,7 +22,7 @@ This application requires Java version 6+. No additional 3rd party modules, pack
 git clone https://github.com/Reagan/tulaa-interview.git
 ```
 
-2. Please ensure that Java 6 is installed on your machine by running
+2. Please ensure that Java 6+ is installed on your machine by running
 
 ```
 > java -version 
